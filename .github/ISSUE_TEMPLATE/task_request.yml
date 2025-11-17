@@ -1,0 +1,109 @@
+name: Task Request
+description: File a structured task request using the team template.
+title: "[Task]: <short title>"
+labels:
+  - task
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Instructions
+        Please complete all sections as applicable. Use links to code, files, or lines where helpful.
+
+  # ────────────── Technical Details ──────────────
+  - type: textarea
+    id: technical-constraints
+    attributes:
+      label: Technical Details — Technical constraints
+      description: List known technical constraints (libraries, platforms, versions, limits) if provided.
+      placeholder: "e.g., Must work with Python 3.11; Node.js 20; Postgres 15; No external services…"
+    validations:
+      required: false
+
+  - type: textarea
+    id: environment-details
+    attributes:
+      label: Technical Details — Environment details
+      description: Environments to target (dev/stage/prod), OS, runtimes, infra details, versions. Select from available github environments and reuse environments from samples
+      placeholder: "e.g., Dev & Staging; Ubuntu 22.04; Kubernetes 1.30; us-east-1; feature flags: X,Y"
+    validations:
+      required: false
+  # ────────────── Samples ──────────────
+  - type: textarea
+    id: samples
+    attributes:
+      label: Samples
+      description: >-
+        List files, parts of files, folders, or repositories to use as a sample for this task.
+        Use paths, links, or repo@sha + line ranges if relevant.
+      placeholder: |
+        Examples:
+        - backend/api/users.py#L120-L188
+        - web/src/components/Form.tsx
+        - another-repo@a1b2c3d (README section 'X')
+    validations:
+      required: false
+
+  # ────────────── Task description ──────────────
+  - type: textarea
+    id: task-description
+    attributes:
+      label: Task description — What should be achieved?
+      placeholder: "State the goal or problem to be solved. What is the outcome we want?"
+    validations:
+      required: true
+
+  # ────────────── Specific Request ──────────────
+  - type: textarea
+    id: specific-request
+    attributes:
+      label: Specific Request — How should it be achieved?
+      description: Preferred approach, components to touch, patterns to follow/avoid. If no preference, say so.
+      placeholder: "Proposed approach, APIs to modify, dependencies to use/avoid, acceptance test strategy, etc."
+    validations:
+      required: false
+
+  # ────────────── Expected outcome ──────────────
+  - type: textarea
+    id: expected-outcome
+    attributes:
+      label: Expected outcome — How should the result look?
+      description: Define acceptance criteria and deliverables.
+      placeholder: |
+        Acceptance criteria / Definition of Done:
+        - [ ] …
+        - [ ] …
+        Deliverables:
+        - Updated docs at …
+        - Tests covering …
+    validations:
+      required: true
+  # ────────────── Scope ──────────────
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope — Limit files and subelements to be changed
+      description: What is in scope and explicitly out of scope? Include paths/globs where possible.
+      placeholder: |
+        In scope:
+        - packages/service-a/**
+        - web/src/pages/settings/*
+        Out of scope:
+        - infra/**
+        - shared/**
+    validations:
+      required: true
+
+  # ────────────── Output Format ──────────────
+  - type: dropdown
+    id: level-of-detail
+    attributes:
+      label: Output Format — Level of detail
+      multiple: false
+      options:
+        - High-level overview
+        - Detailed
+        - Exhaustive (step-by-step)
+      default: 1
+    validations:
+      required: true
