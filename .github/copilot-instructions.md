@@ -1,0 +1,4 @@
+- When creating issues in this repo, always use the "Task Request" issue form unless a different type is explicitly specified.
+- If the user says "ticket" or "issue", map that to the "Task Request" form from `.github/ISSUE_TEMPLATE/task_request.yml` of corresponding repository.
+- Default labels: `enhancement`. No default assignee.
+- refer context repositories, files, codespaces, issues, pull requests added during chat
