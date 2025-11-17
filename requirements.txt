@@ -1,0 +1,2 @@
+lightstar>=0.1.0
+uvicorn>=0.20.0
